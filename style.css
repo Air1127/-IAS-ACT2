@@ -1,0 +1,14 @@
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background: #f4f4f9; }
+header { background: #003366; color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+h1 { margin: 0; font-size: 1.5rem; }
+nav a { color: white; margin-left: 1rem; text-decoration: none; font-weight: bold; }
+main { padding: 2rem; max-width: 1000px; margin: auto; }
+section { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 20px; }
+input, textarea { padding: 10px; margin-right: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+button { padding: 10px 15px; border: none; background: #003366; color: white; border-radius: 4px; cursor: pointer; }
+button:hover { background: #00509e; }
+table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+th { background-color: #003366; color: white; }
+.feedback-item { border-bottom: 1px solid #ddd; padding: 10px 0; }
+.card { background: #eef; padding: 15px; border-left: 5px solid #003366; }

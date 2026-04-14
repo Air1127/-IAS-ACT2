@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central Valley University - Grading Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🏛️ Grading Management System</h1>
+        <nav id="navbar" style="display: none;">
+            <a href="#" onclick="showSection('dashboard')">Home</a>
+            <a href="#" onclick="showSection('transcript')">My Transcript</a>
+            <a href="#" onclick="showSection('feedback')">Course Feedback</a>
+            <a href="#" onclick="showSection('profile')">Profile</a>
+            <a href="#" onclick="showSection('it-support')">IT Support</a>
+            <a href="#" onclick="logout()">Logout</a>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <!-- LOGIN SECTION -->
+        <section id="login-section">
+            <h2>Portal Login</h2>
+            <form id="loginForm" onsubmit="login(event)">
+                <input type="text" id="username" placeholder="Student ID or Faculty Username" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+            <div id="login-error" style="color: red; margin-top: 10px;"></div>
+        </section>
+
+        <!-- DASHBOARD SECTION -->
+        <section id="dashboard" style="display: none;">
+            <h2>Welcome, <span id="user-display-name">Student</span></h2>
+            <p>Access your academic records securely.</p>
+
+            <div class="card">
+                <h3>Course Search</h3>
+                <form onsubmit="searchCourse(event)">
+                    <input type="text" id="searchInput" placeholder="Search for a course syllabus...">
+                    <button type="submit">Search</button>
+                </form>
+                <div id="searchResults" style="margin-top: 10px; background: #eee; padding: 10px;"></div>
+            </div>
+        </section>
+
+        <!-- TRANSCRIPT SECTION -->
+        <section id="transcript" style="display: none;">
+            <h2>Academic Transcript</h2>
+            <button onclick="loadTranscript()">Refresh Transcript</button>
+            <table id="transcriptTable">
+                <thead>
+                    <tr>
+                        <th>Course</th>
+                        <th>Grade</th>
+                        <th>Prof. Comments</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+
+        <!-- FEEDBACK SECTION -->
+        <section id="feedback" style="display: none;">
+            <h2>Course Feedback Discussion</h2>
+            <p>Share your experiences with courses here.</p>
+            <form onsubmit="postFeedback(event)">
+                <input type="text" id="fbCourse" placeholder="Course Name (e.g. INFOSEC 101)" required>
+                <textarea id="fbComment" placeholder="Your review..." rows="4" required style="width: 100%;"></textarea>
+                <button type="submit">Submit Feedback</button>
+            </form>
+            <div id="feedbackList" style="margin-top: 20px;"></div>
+        </section>
+
+        <!-- PROFILE SECTION -->
+        <section id="profile" style="display: none;">
+            <h2>Profile Settings</h2>
+            <form onsubmit="updateProfile(event)">
+                <label>Profile Bio:</label>
+                <textarea id="profileBio" rows="4" style="width: 100%;"></textarea>
+                <button type="submit">Save Changes</button>
+            </form>
+
+            <h3 style="margin-top:20px;">Upload Assignment / Document</h3>
+            <form id="uploadForm" onsubmit="uploadDocument(event)">
+                <input type="file" id="fileInput" name="document" required>
+                <button type="submit">Upload File</button>
+            </form>
+            <div id="uploadResult" style="color: green;"></div>
+        </section>
+
+        <!-- IT SUPPORT SECTION -->
+        <section id="it-support" style="display: none;">
+            <h2>IT System Diagnostics</h2>
+            <p>For Administrative Use Only.</p>
+            <form onsubmit="pingServer(event)">
+                <input type="text" id="pingHost" placeholder="Host to ping (e.g. 127.0.0.1)" required>
+                <button type="submit">Run Diagnostic</button>
+            </form>
+            <pre id="pingResult" style="background: #222; color: #0f0; padding: 10px; margin-top: 10px; display: none;"></pre>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
